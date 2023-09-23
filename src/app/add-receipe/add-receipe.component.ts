@@ -18,8 +18,8 @@ export class AddReceipeComponent {
   receipeForm = this.fb.group({
     receipeName: ['', [Validators.required, Validators.minLength(5)]],
     cuisine: ['', [Validators.required, Validators.minLength(5)]],
-    featured: [false],
-    rating: [0, [Validators.required, Validators.min(1), Validators.max(10)]],
+    recommended: [false],
+    rating: [0, [Validators.required, Validators.min(1), Validators.max(5)]],
     uploadedDate: ['', [Validators.required]],
     like: 0,
     dislike: 0,

@@ -8,7 +8,7 @@
   class="add-receipe-form"
 >
   <marquee><h1>Add Receipe Form</h1></marquee>
-  <mat-slide-toggle>Recommended</mat-slide-toggle>
+  <mat-slide-toggle formControlName="recommended">Recommended</mat-slide-toggle>
   <mat-form-field>
     <mat-label>Receipe Name</mat-label>
     <input
@@ -43,7 +43,7 @@
 
   <mat-form-field>
     <mat-label>UploadedDate</mat-label>
-    <input matInput formControlName="UploadedDate" [matDatepicker]="picker" />
+    <input matInput formControlName="uploadedDate" [matDatepicker]="picker" />
     <mat-hint>MM/DD/YYYY</mat-hint>
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
@@ -124,9 +124,29 @@
       Please provide a url with http pattern
     </mat-error>
   </mat-form-field>
-  <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating>
+  <mat-form-field>
+    <mat-label>Rating</mat-label>
+    <input matInput formControlName="rating" placeholder="Ex. 7" />
 
-  <button type="submit" mat-raised-button color="primary">
+    <mat-error *ngIf="rating?.touched && rating?.hasError('required')">
+      Why not fill this field 😉?
+    </mat-error>
+
+    <mat-error
+      *ngIf="
+        rating?.touched && (rating?.hasError('min') || rating?.hasError('max'))
+      "
+    >
+      Rating must be 0 to 10
+    </mat-error>
+  </mat-form-field>
+  <!-- <ngx-star-rating [formControl]="rating" [id]="'rating'"></ngx-star-rating> -->
+  <button
+    type="submit"
+    [disabled]="receipeForm.invalid"
+    mat-raised-button
+    color="primary"
+  >
     <mat-icon
       aria-hidden="false"
       aria-label="Example home icon"
