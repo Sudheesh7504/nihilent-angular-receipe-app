@@ -1,0 +1,70 @@
+<mat-card>
+  <div class="receipe-component">
+    <img src="{{ receipe.receipeImage }}" class="Image" />
+
+    <p *ngIf="receipe.recommended" class="receipe-badge">Recommended</p>
+
+    <div class="details-component">
+      <span class="receipe-title-and-rating"
+        ><p>
+          <strong>{{ receipe.receipeName }}</strong>
+        </p>
+        <button
+          (click)="toggleInstructions()"
+          mat-icon-button
+          color="primary"
+          aria-label="Toggle Instructions"
+        >
+          <mat-icon *ngIf="show; else moreIcon">expand_less</mat-icon>
+
+          <ng-template #moreIcon>
+            <mat-icon>expand_more</mat-icon>
+          </ng-template>
+        </button>
+
+        <button (click)="getdetails()" mat-icon-button aria-label="Info">
+          <mat-icon>info</mat-icon>
+        </button>
+
+        <p>
+          <strong>⭐{{ receipe.rating }}</strong>
+        </p></span
+      >
+      <b
+        ><em>{{ receipe.uploadedDate | date : "MMM YYY" }} </em></b
+      >
+
+      <p *ngIf="show" class="receipe-instructions">
+        {{ receipe.instructions }}
+      </p>
+      <br />
+      <app-counter
+        [like]="receipe.like"
+        [dislike]="receipe.dislike"
+        (likeCounter)="updateLikes($event)"
+        (dislikeCounter)="updateDislikes($event)"
+      ></app-counter
+      ><br />
+
+      <div class="btn">
+        <button
+          (click)="deleteReceipe()"
+          mat-icon-button
+          color="warn"
+          aria-label="Edit Movie"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+
+        <button
+          (click)="editReceipe()"
+          mat-icon-button
+          color="accent"
+          aria-label="Edit Movie"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div></mat-card
+>

@@ -1,0 +1,40 @@
+<div class="movietrailercard">
+  <iframe
+    width="930"
+    height="523"
+    [src]="receipe.foodVlog"
+    title="Real Spaghetti Carbonara | Antonio Carluccio"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+
+  <div class="moviecontent">
+    <div class="mname">
+      <span class="name">{{ receipe.receipeName }}</span>
+      <button
+        (click)="toggleInstructions()"
+        mat-icon-button
+        aria-label="Expand Less"
+      >
+        <mat-icon *ngIf="show; else moreIcon">expand_less</mat-icon>
+        <ng-template #moreIcon>
+          <mat-icon>expand_more</mat-icon>
+        </ng-template>
+      </button>
+
+      <span class="name">⭐{{ receipe.rating }}</span>
+    </div>
+
+    <div class="movie-extra-detail">
+      <em>{{ receipe?.uploadedDate | date : "MMM YYYY" }}</em>
+
+      <p *ngIf="show" class="content">{{ receipe.instructions }}</p>
+      <div class="movie-cast-container">
+        <mat-icon>shopping_bag</mat-icon>
+        <p>Necessary {{ receipe.ingredients?.join(", ") }}</p>
+      </div>
+      <app-counter></app-counter>
+    </div>
+  </div>
+</div>
