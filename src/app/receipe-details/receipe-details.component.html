@@ -1,4 +1,4 @@
-<div class="movietrailercard">
+<div class="receipeVlogCard">
   <iframe
     width="930"
     height="523"
@@ -9,8 +9,8 @@
     allowfullscreen
   ></iframe>
 
-  <div class="moviecontent">
-    <div class="mname">
+  <div class="receipecontent">
+    <div class="receipename">
       <span class="name">{{ receipe.receipeName }}</span>
       <button
         (click)="toggleInstructions()"
@@ -26,13 +26,13 @@
       <span class="name">⭐{{ receipe.rating }}</span>
     </div>
 
-    <div class="movie-extra-detail">
+    <div class="receipe-extra-detail">
       <em>{{ receipe?.uploadedDate | date : "MMM YYYY" }}</em>
 
       <p *ngIf="show" class="content">{{ receipe.instructions }}</p>
-      <div class="movie-cast-container">
+      <div class="receipe-ingredients-container">
         <mat-icon>shopping_bag</mat-icon>
-        <p>Necessary {{ receipe.ingredients?.join(", ") }}</p>
+        <p>Items{{ receipe.ingredients?.join(", ") }}</p>
       </div>
       <app-counter></app-counter>
     </div>
