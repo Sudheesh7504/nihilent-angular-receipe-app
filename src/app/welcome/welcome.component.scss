@@ -69,10 +69,20 @@
   
   /* Styles for the welcome container */
   .welcome-container {
+    transform: translateY(-200px) translateX(80px);
     text-align: center;
     color: #fff; /* Text color for better visibility */
   }
-  
+  .welcome-container1{
+    text-align: center;
+    color: #fff;
+    transform: translateX(-170px) translateY(-150px);
+  }
+  .welcome-container2{
+    text-align: center;
+    color: #fff;
+    transform: translateX(-600px) translateY(-100px);
+  }
   h1 {
     font-size: 40px; /* Increase the font size to make it larger */
     font-weight: bold;

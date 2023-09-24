@@ -23,6 +23,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 
 
@@ -65,6 +67,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatSlideToggleModule,
     MatNativeDateModule,
     MatChipsModule,
+    MatPaginatorModule
+
 
 
 

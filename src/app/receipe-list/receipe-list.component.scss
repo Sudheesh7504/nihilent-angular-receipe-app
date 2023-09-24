@@ -1,24 +1,66 @@
 .receipe {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px;
-    flex-wrap: wrap;
-    overflow: hidden;
-  }
-  
-  
-  
-  .example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  
-    margin: 0 auto;
-    margin-top: 20px;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
-  
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+
+
+.background-container {
+  background-image: url("https://media.istockphoto.com/id/1428737062/photo/empty-wooden-table-top-with-lights-bokeh-on-blur-restaurant-background.webp?b=1&s=170667a&w=0&k=20&c=bmQyPVwhLAB_FN9glJrREyPxzmIQPv5TOFcqcXHy2pw= "); /* Replace with your background image URL */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  min-height: 100vh; /* Set the minimum height to cover the entire viewport */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// .receipe {
+//   display: flex;
+//   justify-content: center;
+//   gap: 20px;
+//   padding: 10px;
+//   flex-wrap: wrap;
+//   overflow: hidden;
+//   background-color: rgba(255, 255, 255, 0.5); /* Adjust the opacity (last value) as needed */
+//   border-radius: 10px; /* Add rounded corners to the cards */
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the cards */
+//   padding: 20px; /* Add some spacing inside the cards */
+//   max-width: 800px; /* Limit the width of the cards */
+//   margin: 20px; /* Add margin to the cards */
+// }
+
+// .example-form {
+//   min-width: 150px;
+//   max-width: 500px;
+//   width: 100%;
+//   margin: 0 auto;
+//   margin-top: 20px;
+//   background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity (last value) as needed */
+//   padding: 20px; /* Add some spacing inside the form */
+//   border-radius: 10px; /* Add rounded corners to the form */
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the form */
+// }
+
+
