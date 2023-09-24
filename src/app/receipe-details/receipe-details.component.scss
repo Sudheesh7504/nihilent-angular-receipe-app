@@ -1,65 +1,146 @@
-.receipe-list-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px;
-    flex-wrap: wrap;
-    overflow: hidden;
-  }
+// .receipe-list-container {
+//     display: flex;
+//     justify-content: center;
+//     gap: 20px;
+//     padding: 10px;
+//     flex-wrap: wrap;
+//     overflow: hidden;
+//   }
   
   
   
-  .example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
+//   .example-form {
+//     min-width: 150px;
+//     max-width: 500px;
+//     width: 100%;
   
-    margin: 0 auto;
-    margin-top: 20px;
-  }
+//     margin: 0 auto;
+//     margin-top: 20px;
+//   }
   
-  .example-full-width {
-    width: 100%;
-  }
+//   .example-full-width {
+//     width: 100%;
+//   }
   
-  .receipeVlogCard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: black;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    max-width: 930px;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
+//   .receipeVlogCard {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     background-color: black;
+//     padding: 20px;
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//     border-radius: 8px;
+//     max-width: 930px;
+//     margin: 0 auto;
+//     box-sizing: border-box;
+//   }
   
-  .video-container {
-    width: 100%;
-    max-width: 930px;
-    overflow: hidden;
-  }
+//   .video-container {
+//     width: 100%;
+//     max-width: 930px;
+//     overflow: hidden;
+//   }
  
-  .receipecontent {
-    width: 100%;
-    padding: 16px;
-    background-color: black;
-    color:white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin-top: 16px;
-    box-sizing: border-box;
-  }
+//   .receipecontent {
+//     width: 100%;
+//     padding: 16px;
+//     background-color: black;
+//     color:white;
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//     border-radius: 8px;
+//     margin-top: 16px;
+//     box-sizing: border-box;
+//   }
   
-  .receipe-video-container{
-    background-color:brown;
-  }
+//   .receipe-video-container{
+//     background-color:brown;
+//   }
   
-  .receipe-ingredients-container{
-    display: flex;
-  }
+//   .receipe-ingredients-container{
+//     display: flex;
+//   }
 
-  .name{
-    font-weight:900;
-  }
+//   .name{
+//     font-weight:900;
+//   }
+
+
+
+.receipe-list-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.receipeVlogCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  max-width: 930px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.video-container {
+  width: 100%;
+  max-width: 930px;
+  overflow: hidden;
+}
+
+.receipecontent {
+  width: 100%;
+  padding: 16px;
+  background-color: black;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 16px;
+  box-sizing: border-box;
+}
+
+.receipe-ingredients-container {
+  display: flex;
+}
+
+.name {
+  font-weight: 900;
+}
+
+// .receipe-video-container {
+//   background-image: url("https://img.freepik.com/premium-photo/food-table-top-view-free-space-your-text_187166-25767.jpg");
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-attachment: fixed;
+//   background-position: center center;
+//   background-color: brown; 
+// }
+
+.receipe-video-container {
+  background-image: url("https://i.gifer.com/B4IS.gif");
+  // background-image: url("https://media.tenor.com/u8SyanEtCYsAAAAC/food-chinesefood.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-color: brown; /* This sets a fallback background color in case the image is missing or fails to load */
+}
+
