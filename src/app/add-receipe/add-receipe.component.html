@@ -2,160 +2,169 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
-<form
-  [formGroup]="receipeForm"
-  (ngSubmit)="addReceipe()"
-  class="add-receipe-form"
->
-  <marquee><h1>Add Receipe Form</h1></marquee>
-  <mat-slide-toggle formControlName="recommended">Recommended</mat-slide-toggle>
-  <mat-form-field>
-    <mat-label>Receipe Name</mat-label>
-    <input
-      matInput
-      formControlName="receipeName"
-      placeholder="Ex. Sushi Rolls"
-    />
 
-    <mat-error
-      *ngIf="receipeName?.touched && receipeName?.hasError('required')"
-    >
-      Why not fill this field 😉?
-    </mat-error>
-    <mat-error
-      *ngIf="receipeName?.touched && receipeName?.hasError('minlength')"
-    >
-      Please provide full receipe name
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Cuisine</mat-label>
-    <input matInput formControlName="cuisine" placeholder="Ex.Indian" />
-
-    <mat-error *ngIf="cuisine?.touched && cuisine?.hasError('required')">
-      Why not fill this field 😉?
-    </mat-error>
-    <mat-error *ngIf="cuisine?.touched && cuisine?.hasError('minlength')">
-      Please provide a cuisine
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>UploadedDate</mat-label>
-    <input matInput formControlName="uploadedDate" [matDatepicker]="picker" />
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-
-  <mat-form-field class="example-chip-list">
-    <mat-chip-grid #chipList>
-      <mat-chip-row
-        *ngFor="let ingredient of ingredients.controls; let i = index"
-        (removed)="removeIngredients(i)"
-      >
-        {{ ingredient.value }}
-        <mat-icon matChipRemove>cancel</mat-icon>
-      </mat-chip-row>
-      <input
-        placeholder="New Ingredients"
-        [matChipInputFor]="chipList"
-        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-        [matChipInputAddOnBlur]="true"
-        (matChipInputTokenEnd)="addIngredients($event)"
-      />
-    </mat-chip-grid>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Receipe Image</mat-label>
-    <input
-      matInput
-      formControlName="receipeImage"
-      placeholder="Ex. http://img.com"
-    />
-
-    <mat-error
-      *ngIf="receipeImage?.touched && receipeImage?.hasError('required')"
-    >
-      Why not fill this field 😉?
-    </mat-error>
-    <mat-error
-      *ngIf="receipeImage?.touched && receipeImage?.hasError('minlength')"
-    >
-      Please provide full poster
-    </mat-error>
-    <mat-error
-      *ngIf="receipeImage?.touched && receipeImage?.hasError('pattern')"
-    >
-      Please provide a url with http pattern
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Instructions</mat-label>
-    <input
-      matInput
-      formControlName="instructions"
-      placeholder="Ex.turn on stove"
-    />
-
-    <mat-error
-      *ngIf="instructions?.touched && instructions?.hasError('required')"
-    >
-      Why not fill this field 😉?
-    </mat-error>
-    <mat-error
-      *ngIf="instructions?.touched && instructions?.hasError('minlength')"
-    >
-      Please provide min 20 characters.
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>foodVlog</mat-label>
-    <input matInput formControlName="foodVlog" placeholder="Ex. Cool movie" />
-    <mat-error *ngIf="foodVlog?.touched && foodVlog?.hasError('required')">
-      Why not fill this field 😉?
-    </mat-error>
-    <mat-error *ngIf="foodVlog?.touched && foodVlog?.hasError('minlength')">
-      Please provide a foodVlog url
-    </mat-error>
-    <mat-error *ngIf="foodVlog?.touched && foodVlog?.hasError('pattern')">
-      Please provide a url with http pattern
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Rating</mat-label>
-    <input matInput formControlName="rating" placeholder="Ex. 7" />
-
-    <mat-error *ngIf="rating?.touched && rating?.hasError('required')">
-      Why not fill this field 😉?
-    </mat-error>
-
-    <mat-error
-      *ngIf="
-        rating?.touched && (rating?.hasError('min') || rating?.hasError('max'))
-      "
-    >
-      Rating must be 0 to 10
-    </mat-error>
-  </mat-form-field>
-  <!-- <ngx-star-rating [formControl]="rating" [id]="'rating'"></ngx-star-rating> -->
-  <button
-    type="submit"
-    [disabled]="receipeForm.invalid"
-    mat-raised-button
-    color="primary"
+<div class="add-receipe-container">
+  <h1>Add Movie Form</h1>
+  <form
+    [formGroup]="receipeForm"
+    (ngSubmit)="addReceipe()"
+    class="add-receipe-form"
   >
-    <mat-icon
-      aria-hidden="false"
-      aria-label="Example home icon"
-      fontIcon="add"
-    ></mat-icon>
-    {{ "Add Receipe" | uppercase }}
-  </button>
-</form>
+    <mat-slide-toggle formControlName="recommended"
+      >Recommended</mat-slide-toggle
+    >
+    <mat-form-field>
+      <mat-label>Receipe Name</mat-label>
+      <input
+        matInput
+        formControlName="receipeName"
+        placeholder="Ex. Sushi Rolls"
+      />
 
-<pre>
+      <mat-error
+        *ngIf="receipeName?.touched && receipeName?.hasError('required')"
+      >
+        Why not fill this field 😉?
+      </mat-error>
+      <mat-error
+        *ngIf="receipeName?.touched && receipeName?.hasError('minlength')"
+      >
+        Please provide full receipe name
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Cuisine</mat-label>
+      <input matInput formControlName="cuisine" placeholder="Ex. Indian" />
+
+      <mat-error *ngIf="cuisine?.touched && cuisine?.hasError('required')">
+        Why not fill this field 😉?
+      </mat-error>
+      <mat-error *ngIf="cuisine?.touched && cuisine?.hasError('minlength')">
+        Please provide a cuisine
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>UploadedDate</mat-label>
+      <input matInput formControlName="uploadedDate" [matDatepicker]="picker" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="example-chip-list">
+      <mat-chip-grid #chipList>
+        <mat-chip-row
+          *ngFor="let ingredient of ingredients.controls; let i = index"
+          (removed)="removeIngredients(i)"
+        >
+          {{ ingredient.value }}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip-row>
+        <input
+          placeholder="New Ingredients"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="true"
+          (matChipInputTokenEnd)="addIngredients($event)"
+        />
+      </mat-chip-grid>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Receipe Image</mat-label>
+      <input
+        matInput
+        formControlName="receipeImage"
+        placeholder="Ex. http://img.com"
+      />
+
+      <mat-error
+        *ngIf="receipeImage?.touched && receipeImage?.hasError('required')"
+      >
+        Why not fill this field 😉?
+      </mat-error>
+      <mat-error
+        *ngIf="receipeImage?.touched && receipeImage?.hasError('minlength')"
+      >
+        Please provide full poster
+      </mat-error>
+      <mat-error
+        *ngIf="receipeImage?.touched && receipeImage?.hasError('pattern')"
+      >
+        Please provide a url with http pattern
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Instructions</mat-label>
+      <input
+        matInput
+        formControlName="instructions"
+        placeholder="Ex.turn on stove"
+      />
+
+      <mat-error
+        *ngIf="instructions?.touched && instructions?.hasError('required')"
+      >
+        Why not fill this field 😉?
+      </mat-error>
+      <mat-error
+        *ngIf="instructions?.touched && instructions?.hasError('minlength')"
+      >
+        Please provide min 20 characters.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>foodVlog</mat-label>
+      <input matInput formControlName="foodVlog" placeholder="Ex. Cool movie" />
+      <mat-error *ngIf="foodVlog?.touched && foodVlog?.hasError('required')">
+        Why not fill this field 😉?
+      </mat-error>
+      <mat-error *ngIf="foodVlog?.touched && foodVlog?.hasError('minlength')">
+        Please provide a foodVlog url
+      </mat-error>
+      <mat-error *ngIf="foodVlog?.touched && foodVlog?.hasError('pattern')">
+        Please provide a url with http pattern
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Rating</mat-label>
+      <input matInput formControlName="rating" placeholder="Ex. 7" />
+
+      <mat-error *ngIf="rating?.touched && rating?.hasError('required')">
+        Why not fill this field 😉?
+      </mat-error>
+
+      <mat-error
+        *ngIf="
+          rating?.touched &&
+          (rating?.hasError('min') || rating?.hasError('max'))
+        "
+      >
+        Rating must be 0 to 10
+      </mat-error>
+    </mat-form-field>
+    <!-- <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating> -->
+    <button
+      type="submit"
+      [disabled]="receipeForm.invalid"
+      mat-raised-button
+      color="primary"
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="add"
+      ></mat-icon>
+      {{ "Add Receipe" | uppercase }}
+    </button>
+  </form>
+</div>
+
+<!-- <pre>
   {{ receipeForm.value | json }}
-</pre>
+</pre> -->

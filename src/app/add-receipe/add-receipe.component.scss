@@ -1,14 +1,29 @@
+
+.add-receipe-container{
+   background-color:#3b678a;
+}
 .add-receipe-form {
-    display: grid;
+     display: grid;
   
-    gap: 2px;
-    justify-content: center;
+    
   
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
+    
+    width: 50%;
+  margin: 0 auto;
+  }
+
+  .add-receipe-form {
+    border: 2px solid #ccc; /* Add your desired border styles here */
+    padding: 20px; /* Optional: Add padding to give some spacing inside the form */
+    border-radius: 5px; /* Optional: Add rounded corners to the form */
+    background-color: transparent; /* Optional: Set a transparent background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
   }
   
   h1 {
-    color: #673ab7;
+    color:black;
+    text-align: center;
   }
   
+
+ 

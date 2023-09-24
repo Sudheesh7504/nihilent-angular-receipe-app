@@ -65,7 +65,19 @@
     /* transform: translateX(50%); */
     font-weight: 500;
   }
+
   
-  
-  
+.recipe-card {
+  background-image: url("https://media.istockphoto.com/id/1157984877/vector/kitchen-doodle-vector-icon-set-for-modern-recipe-card-template-set-for-cookbook-menu-creator.jpg?s=612x612&w=0&k=20&c=YBOwcueiG0D75pdaM1nPtp8uKd2LC44pBxzvp-j5H7w=");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  border-radius: 8px; /* Add rounded corners for the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a box shadow for depth */
+  padding: 20px; /* Add padding as needed */
+  margin: 10px; /* Add margin between cards */
+  position: relative; /* Ensure relative positioning for absolute elements within the card */
+}
+
   

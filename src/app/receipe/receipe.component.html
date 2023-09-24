@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="recipe-card">
   <div class="receipe-component">
     <img src="{{ receipe.receipeImage }}" class="Image" />
 
@@ -8,6 +8,9 @@
       <span class="receipe-title-and-rating"
         ><p>
           <strong>{{ receipe.receipeName }}</strong>
+        </p>
+        <p>
+          <strong>{{ receipe.cuisine }}</strong>
         </p>
         <button
           (click)="toggleInstructions()"
