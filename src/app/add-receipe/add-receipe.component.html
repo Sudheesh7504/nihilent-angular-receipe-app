@@ -4,12 +4,17 @@
 />
 
 <div class="add-receipe-container">
-  <h1>Add Movie Form</h1>
+  <h1>Add Recipe Form</h1>
   <form
     [formGroup]="receipeForm"
     (ngSubmit)="addReceipe()"
     class="add-receipe-form"
   >
+    <!-- <div class="image-container">
+      <img
+        src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHJlY2lwZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      />
+    </div> -->
     <mat-slide-toggle formControlName="recommended"
       >Recommended</mat-slide-toggle
     >
@@ -145,7 +150,7 @@
           (rating?.hasError('min') || rating?.hasError('max'))
         "
       >
-        Rating must be 0 to 10
+        Rating must be 0 to 5
       </mat-error>
     </mat-form-field>
     <!-- <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating> -->
@@ -165,6 +170,6 @@
   </form>
 </div>
 
-<!-- <pre>
+<pre>
   {{ receipeForm.value | json }}
-</pre> -->
+</pre>

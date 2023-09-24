@@ -1,40 +1,53 @@
-<div class="receipeVlogCard">
-  <iframe
-    width="930"
-    height="523"
-    [src]="receipe.foodVlog"
-    title="Real Spaghetti Carbonara | Antonio Carluccio"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen
-  ></iframe>
-
-  <div class="receipecontent">
-    <div class="receipename">
-      <span class="name">{{ receipe.receipeName }}</span>
-      <button
-        (click)="toggleInstructions()"
-        mat-icon-button
-        aria-label="Expand Less"
-      >
-        <mat-icon *ngIf="show; else moreIcon">expand_less</mat-icon>
-        <ng-template #moreIcon>
-          <mat-icon>expand_more</mat-icon>
-        </ng-template>
-      </button>
-
-      <span class="name">⭐{{ receipe.rating }}</span>
+<div class="receipe-video-container">
+  <div class="receipeVlogCard">
+    <div class="video-container">
+      <iframe
+        width="930"
+        height="523"
+        [src]="receipe.foodVlog"
+        title="Real Spaghetti Carbonara | Antonio Carluccio"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
     </div>
 
-    <div class="receipe-extra-detail">
-      <em>{{ receipe?.uploadedDate | date : "MMM YYYY" }}</em>
+    <div class="receipecontent">
+      <div class="receipename">
+        <span class="name">{{ receipe.receipeName }}</span>
 
-      <p *ngIf="show" class="content">{{ receipe.instructions }}</p>
-      <div class="receipe-ingredients-container">
-        <mat-icon>shopping_bag</mat-icon>
-        <p>Items{{ receipe.ingredients?.join(", ") }}</p>
+        <button
+          (click)="toggleInstructions()"
+          mat-icon-button
+          aria-label="Expand Less"
+        >
+          <mat-icon *ngIf="show; else moreIcon">expand_less</mat-icon>
+          <ng-template #moreIcon>
+            <mat-icon>expand_more</mat-icon>
+          </ng-template>
+        </button>
+
+        <span class="name">⭐{{ receipe.rating }}</span>
       </div>
-      <app-counter></app-counter>
+
+      <div class="receipe-extra-detail">
+        <em
+          ><mat-icon>published_with_changes</mat-icon
+          >{{ receipe?.uploadedDate | date : "MMM YYYY" }}</em
+        >
+
+        <p *ngIf="show" class="content">
+          <mat-icon>description</mat-icon>{{ receipe.instructions }}
+        </p>
+        <div class="receipe-ingredients-container">
+          <p>
+            <mat-icon>shopping_bag </mat-icon>Items-->{{
+              receipe.ingredients?.join(", ")
+            }}
+          </p>
+        </div>
+        <!-- <app-counter></app-counter> -->
+      </div>
     </div>
   </div>
 </div>
