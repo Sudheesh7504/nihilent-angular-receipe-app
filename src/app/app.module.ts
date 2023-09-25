@@ -27,10 +27,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
+
 
   ],
   imports: [
@@ -54,7 +56,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatChipsModule,
     MatDatepickerModule,
     MatSlideToggleModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+
+
 
 
 

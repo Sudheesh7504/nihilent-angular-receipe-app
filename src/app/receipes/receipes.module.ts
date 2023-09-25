@@ -24,7 +24,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { InfiniteScrollDirective } from '../infinite-scroll.directive';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -44,7 +45,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
     AddReceipeComponent,
     EditReceipeComponent,
-    ReceipeDetailsComponent
+    ReceipeDetailsComponent,
+    InfiniteScrollDirective,
   ],
   imports: [
     CommonModule,
@@ -68,6 +70,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatNativeDateModule,
     MatChipsModule,
     MatPaginatorModule,
+    MatProgressSpinnerModule
 
 
 

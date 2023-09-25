@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Receipe } from './app.component';
 import { HttpClient } from '@angular/common/http';
+const API = 'https://64f6f41a9d7754084952d870.mockapi.io/receipes';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReceipeDataService {
-  receipes: Array<Receipe> = [
-
-  ]
+  receipes: Array<Receipe> = [];
 
   constructor(private http: HttpClient) { }
 
@@ -39,7 +38,7 @@ export class ReceipeDataService {
 
   updateReceipe(updatedReceipe: Receipe, id: string) {
     return this.http.put(
-      `https://64f6f41a9d7754084952d870.mockapi.io/receipes/${id}`,
+      `${API}/${id}`,
       updatedReceipe
 
     );
@@ -60,6 +59,15 @@ export class ReceipeDataService {
     return this.receipes;
   }
 
+
+  getReceipeListPagination(page: number, limit: number, searchTerm?: string) {
+    let url = `${API}?limit=${limit}&page=${page}`;
+    if (searchTerm) {
+      url += `&search=${searchTerm}`;
+    }
+
+    return this.http.get<Receipe[]>(url);
+  }
   setReceipes(newReceipe: Receipe) {
     this.receipes.push(newReceipe);
 

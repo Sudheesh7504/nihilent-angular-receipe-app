@@ -33,12 +33,24 @@
       />
     </mat-form-field>
   </form>
-  <section class="receipe">
+  <section
+    class="receipe"
+    appInfiniteScroll
+    apiEndpoint
+    [pageSize]="4"
+    [searchTerm]="searchTerm"
+    (items)="onNewItems($event)"
+    (loading)="onLoadingChange($event)"
+    class="receipe-list-container"
+  >
     <app-receipe
       *ngFor="let rc of receipes"
       [receipe]="rc"
       (removeReceipe)="loadReceipesData()"
     >
     </app-receipe>
+    <div class="spinner-container" *ngIf="isLoading">
+      <mat-spinner></mat-spinner>
+    </div>
   </section>
 </div>

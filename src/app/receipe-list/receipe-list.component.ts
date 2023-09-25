@@ -2,6 +2,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { ReceipeDataService } from '../receipe-data.service';
 import { Receipe } from '../app.component';
 import { FormBuilder } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import {
   debounceTime,
   distinctUntilChanged,
@@ -17,7 +19,10 @@ import {
   styleUrls: ['./receipe-list.component.scss']
 })
 export class ReceipeListComponent {
-
+  receipes: Array<Receipe> = [];
+  getMovieList: Subscription | any;
+  isLoading: boolean = false;
+  searchTerm!: string;
   searchForm = this.fb.group({
     search: '',
   });
@@ -31,8 +36,7 @@ export class ReceipeListComponent {
     this.receipes.splice(idx, 1);
   }
 
-  receipes: Array<Receipe> = [];
-  getMovieList: Subscription | any;
+
   constructor(private receipeDataService: ReceipeDataService, private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -54,6 +58,19 @@ export class ReceipeListComponent {
       .subscribe((rcList) => {
         this.receipes = rcList;
       });
+  }
+
+
+  onNewItems(newItems: Receipe[]): void {
+    if (newItems.length === 0) {
+      this.receipes = []; // Reset the list if an empty array is received
+    } else {
+      this.receipes = [...this.receipes, ...newItems];
+    }
+  }
+
+  onLoadingChange(isLoading: boolean): void {
+    this.isLoading = isLoading;
   }
 
   ngOnDestroy() {
