@@ -67,7 +67,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSlideToggleModule,
     MatNativeDateModule,
     MatChipsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+
 
 
 

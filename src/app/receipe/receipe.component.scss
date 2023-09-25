@@ -3,10 +3,12 @@
   .receipe-component {
     width: 400px; 
     border-radius: 16px;
-    justify-content: space-evenly;
+     justify-content: space-evenly;
     overflow: hidden; 
     position: relative;
     // gap: 100px;
+    background-color: white;
+    color: black;
 }
 .recipe-card{
   background-color: rgba(0, 0, 0, 0.185);
@@ -19,7 +21,7 @@
     // object-fit: contain;
     object-position: center;
     overflow: hidden;
-    border-radius: 20px;
+    // border-radius: 20px;
     transition: transform 0.3s ease-in-out;
 }
   
@@ -37,6 +39,7 @@
     justify-content: space-between;
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
   }
   
   .receipe-title-and-rating {
@@ -74,7 +77,7 @@
   background-position: center;
   border-radius: 8px; /* Add rounded corners for the card */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a box shadow for depth */
-  padding: 20px; /* Add padding as needed */
+  // padding: 20px; 
   margin: 10px; /* Add margin between cards */
   position: relative; /* Ensure relative positioning for absolute elements within the card */
 }
@@ -91,4 +94,10 @@
 
   .zoom-on-hover:hover{
     transform: scale(1.1);
+  }
+
+  .events{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }

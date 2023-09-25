@@ -1,7 +1,5 @@
 
-.add-receipe-container{
-   background-color:#3b678a;
-}
+
 
 .add-receipe-container {
   background-image: url("https://img.freepik.com/premium-vector/vector-graphic-gradient-abstract-background-design-template_635272-24.jpg");
@@ -13,23 +11,21 @@
 .add-receipe-form {
      display: grid;
   
-    
-  
-    
-    width: 50%;
-  margin: 0 auto;
-  }
-
-  .add-receipe-form {
-    border: 2px solid #ccc; /* Add your desired border styles here */
+     border: 2px solid #ccc; /* Add your desired border styles here */
     padding: 20px; /* Optional: Add padding to give some spacing inside the form */
     border-radius: 5px; /* Optional: Add rounded corners to the form */
     background-color: transparent; /* Optional: Set a transparent background */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
-  }
   
+    
+     width: 50%;
+    
+  margin: 0 auto;
+  }
+
+ 
   h1 {
-    color:black;
+    color:#09134b;
     text-align: center;
   }
   

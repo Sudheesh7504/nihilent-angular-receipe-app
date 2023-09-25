@@ -41,32 +41,35 @@
         {{ receipe.instructions }}
       </p>
       <br />
-      <app-counter
-        [like]="receipe.like"
-        [dislike]="receipe.dislike"
-        (likeCounter)="updateLikes($event)"
-        (dislikeCounter)="updateDislikes($event)"
-      ></app-counter
-      ><br />
 
-      <div class="btn">
-        <button
-          (click)="deleteReceipe()"
-          mat-icon-button
-          color="warn"
-          aria-label="Edit Movie"
-        >
-          <mat-icon>delete</mat-icon>
-        </button>
+      <div class="events">
+        <app-counter
+          [like]="receipe.like"
+          [dislike]="receipe.dislike"
+          (likeCounter)="updateLikes($event)"
+          (dislikeCounter)="updateDislikes($event)"
+        ></app-counter
+        ><br />
 
-        <button
-          (click)="editReceipe()"
-          mat-icon-button
-          color="accent"
-          aria-label="Edit Movie"
-        >
-          <mat-icon>edit</mat-icon>
-        </button>
+        <div class="btn">
+          <button
+            (click)="deleteReceipe()"
+            mat-icon-button
+            color="warn"
+            aria-label="Edit Movie"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+
+          <button
+            (click)="editReceipe()"
+            mat-icon-button
+            color="accent"
+            aria-label="Edit Movie"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
       </div>
     </div>
   </div></mat-card

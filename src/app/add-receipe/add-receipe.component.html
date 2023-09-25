@@ -4,7 +4,6 @@
 />
 
 <div class="add-receipe-container">
-  <h1>Add Recipe Form</h1>
   <form
     [formGroup]="receipeForm"
     (ngSubmit)="addReceipe()"
@@ -15,6 +14,7 @@
         src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHJlY2lwZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
       />
     </div> -->
+    <marquee> <h1>Add Recipe Form</h1></marquee>
     <mat-slide-toggle formControlName="recommended"
       >Recommended</mat-slide-toggle
     >
@@ -153,7 +153,7 @@
         Rating must be 0 to 5
       </mat-error>
     </mat-form-field>
-    <!-- <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating> -->
+    <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating>
     <button
       type="submit"
       [disabled]="receipeForm.invalid"
