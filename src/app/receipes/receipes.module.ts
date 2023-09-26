@@ -26,6 +26,11 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { InfiniteScrollDirective } from '../infinite-scroll.directive';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {
+  MatDialogModule,
+} from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -47,21 +52,17 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     EditReceipeComponent,
     ReceipeDetailsComponent,
     InfiniteScrollDirective,
+    ConfirmDialogComponent,
   ],
   imports: [
     CommonModule,
     ReceipesRoutingModule,
-
-
     MatIconModule,
     MatFormFieldModule,
-    MatIconModule,
-
+    MatCardModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatCardModule,
     MatToolbarModule,
-    MatCardModule,
     MatBadgeModule,
     MatButtonModule,
     MatInputModule,
@@ -70,18 +71,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatNativeDateModule,
     MatChipsModule,
     MatPaginatorModule,
-    MatProgressSpinnerModule
-
-
-
-
-
-
-
-
-
-
-
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatSnackBarModule
+  ],
+  providers: [
+    // MatDialog
   ]
 })
 export class ReceipesModule { }
+
+

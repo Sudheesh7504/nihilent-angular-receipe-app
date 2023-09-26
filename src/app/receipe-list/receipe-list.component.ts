@@ -49,7 +49,7 @@ export class ReceipeListComponent {
       .subscribe((mvList) => {
         this.receipes = mvList;
       });
-    this.loadReceipesData();
+    // this.loadReceipesData();
   }
 
   loadReceipesData() {
@@ -62,20 +62,16 @@ export class ReceipeListComponent {
 
 
   onNewItems(newItems: Receipe[]): void {
-    if (newItems.length === 0) {
-      this.receipes = []; // Reset the list if an empty array is received
-    } else {
-      this.receipes = [...this.receipes, ...newItems];
-    }
+    this.receipes = [...this.receipes, ...newItems];
   }
 
   onLoadingChange(isLoading: boolean): void {
     this.isLoading = isLoading;
   }
 
-  ngOnDestroy() {
-    console.log('Destory');
-    this.getMovieList.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   console.log('Destory');
+  //   this.getMovieList.unsubscribe();
+  // }
 }
 

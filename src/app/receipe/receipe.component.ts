@@ -1,8 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, Inject } from '@angular/core';
 import { Receipe } from '../app.component';
 import { Router } from '@angular/router';
 import { ReceipeDataService } from '../receipe-data.service';
 import { debounceTime, Subject, switchMap } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+
+
 
 
 
@@ -39,7 +43,7 @@ export class ReceipeComponent {
 
 
 
-  constructor(private router: Router, private receipeDataService: ReceipeDataService) {
+  constructor(private router: Router, private receipeDataService: ReceipeDataService, private dialog: MatDialog) {
     this.likeSubject.pipe(debounceTime(1000),
       switchMap((likeCount) => {
         this.receipe = { ...this.receipe, like: likeCount }
@@ -55,7 +59,29 @@ export class ReceipeComponent {
   }
 
 
+
+  // openSnackBar(message: string, action: string) {
+  //   this.snackBar.open(message, action);
+  // }
+
+  openConfirmDialog() {
+    return this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: '450px',
+      data: { message: 'Are you sure you want to delete this recipe?' },
+    });
+  }
+
   deleteReceipe() {
+    this.openConfirmDialog()
+      .afterClosed()
+      .subscribe((confirmed: boolean) => {
+        if (confirmed) {
+          this.performDelete();
+        }
+      });
+  }
+
+  performDelete() {
     this.receipeDataService.deleteReceipesById(this.receipe.id).subscribe(() => {
       console.log('Receipe deleted successfully');
       this.removeReceipe.emit();

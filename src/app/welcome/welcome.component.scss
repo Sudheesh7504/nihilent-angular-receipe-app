@@ -1,46 +1,70 @@
 
 // .background-image {
-//     background-image: url("https://media.istockphoto.com/id/607299402/photo/culinary-background-with-spices-and-recipe-book.?s=612x612&w=0&k=20&c=IpEqVDztshwHdB6rnprLfOSbh1rtz8aKy5IUIWTmxzw=");
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     background-attachment: fixed;
-//     background-position: center;
-//     height: 100vh;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//   }
-  
-//   /* Styles for the welcome container */
-//   .welcome-container {
-//     transform: translateY(-200px) translateX(80px);
-//     text-align: center;
-//     color: #fff; /* Text color for better visibility */
-//   }
-//   .welcome-container1{
-//     text-align: center;
-//     color: #fff;
-//     transform: translateX(-170px) translateY(-150px);
-//   }
-//   .welcome-container2{
-//     text-align: center;
-//     color: #fff;
-//     transform: translateX(-600px) translateY(-100px);
-//   }
-//   h1 {
-//     font-size: 40px; 
-//     font-weight: bold;
-//     color: #ff5733; 
-//     text-transform: uppercase; 
-//   }
-  
-//   .button{
-//     transform: translate(-50%,-50%);
-//   }
+//   background-image: url("https://media.istockphoto.com/id/607299402/photo/culinary-background-with-spices-and-recipe-book.?s=612x612&w=0&k=20&c=IpEqVDztshwHdB6rnprLfOSbh1rtz8aKy5IUIWTmxzw=");
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-attachment: fixed;
+//   background-position: center;
+//   height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 
 
-/* Styles for the background image */
-.background-image {
+
+// /* Styles for the "Click Here" button */
+// .button {
+//   transform: translate(-50%, -50%);
+//   background-color: #ff9800; /* Button background color */
+//   color: #fff; /* Button text color */
+//   border: none; /* Remove button border */
+//   padding: 10px 20px; /* Adjust padding as needed */
+//   font-size: 16px; /* Adjust font size as needed */
+//   cursor: pointer;
+//   transition: background-color 0.3s, color 0.3s; /* Add a smooth transition effect */
+
+//   /* Center the button */
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+// }
+
+// /* Hover effect for the button */
+// .button:hover {
+//   background-color: #ff5733; /* Change background color on hover */
+// }
+
+
+// .welcome-container {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   height: 100vh;
+//   width: 100vw;
+// }
+
+// // .welcome-title {
+// //   font-size: 48px;
+// //   font-weight: bold;
+// //   color: orangered;
+// // }
+
+// // .welcome-subtitle {
+// //   font-size: 32px;
+// //   font-weight: normal;
+  
+// // }
+
+// // .welcome-icon {
+// //   font-size: 48px;
+// //   margin-top: 20px;
+// // }
+
+
+.welcome-container {
   background-image: url("https://media.istockphoto.com/id/607299402/photo/culinary-background-with-spices-and-recipe-book.?s=612x612&w=0&k=20&c=IpEqVDztshwHdB6rnprLfOSbh1rtz8aKy5IUIWTmxzw=");
   background-size: cover;
   background-repeat: no-repeat;
@@ -49,30 +73,16 @@
   height: 100vh;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
-/* Styles for the welcome container */
-.welcome-container {
-  transform: translateY(-200px) translateX(80px);
-  text-align: center;
-  color: #fff; /* Text color for better visibility */
-}
-.welcome-container1 {
-  text-align: center;
-  color: #fff;
-  transform: translateX(-170px) translateY(-150px);
-}
-.welcome-container2 {
-  text-align: center;
-  color: #fff;
-  transform: translateX(-600px) translateY(-100px);
-}
-h1 {
-  font-size: 40px; /* Increase the font size to make it larger */
+
+
+.Welcome {
+  font-size: 48px;
   font-weight: bold;
-  color: #ff5733; /* Set your desired text color (e.g., orange) */
-  text-transform: uppercase; /* Convert text to uppercase */
+  color: orangered;
 }
 
 /* Styles for the "Click Here" button */
@@ -88,7 +98,8 @@ h1 {
 
   /* Center the button */
   position: absolute;
-  top: 50%;
+  top: 70%;
+
   left: 50%;
   transform: translate(-50%, -50%);
 }

@@ -7,10 +7,13 @@
     <div class="details-component">
       <span class="receipe-title-and-rating"
         ><p>
-          <strong>{{ receipe.receipeName }}</strong>
+          <strong
+            ><mat-icon>restaurant_menu</mat-icon
+            >{{ receipe.receipeName }}</strong
+          >
         </p>
         <p>
-          <strong>{{ receipe.cuisine }}</strong>
+          <strong><mat-icon>flag</mat-icon>{{ receipe.cuisine }}</strong>
         </p>
         <button
           (click)="toggleInstructions()"
@@ -33,9 +36,9 @@
           <strong>⭐{{ receipe.rating }}</strong>
         </em></span
       >
-      <b
+      <!-- <b
         ><em>{{ receipe.uploadedDate | date : "MMM YYY" }} </em></b
-      >
+      > -->
 
       <p *ngIf="show" class="receipe-instructions">
         {{ receipe.instructions }}
@@ -72,5 +75,21 @@
         </div>
       </div>
     </div>
+    <!-- <mat-form-field>
+      <mat-label>Message</mat-label>
+      <input matInput value="Disco party!" #message />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Action</mat-label>
+      <input matInput value="Dance" #action />
+    </mat-form-field>
+
+    <button
+      mat-stroked-button
+      (click)="openSnackBar(message.value, action.value)"
+    >
+      Show snack-bar
+    </button> -->
   </div></mat-card
 >

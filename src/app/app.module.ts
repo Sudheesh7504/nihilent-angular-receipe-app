@@ -21,6 +21,9 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 
@@ -34,35 +37,19 @@ import { MatNativeDateModule } from '@angular/material/core';
     WelcomeComponent,
 
 
+
   ],
   imports: [
-
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     BrowserAnimationsModule,
-    MatIconModule,
     MatFormFieldModule,
     MatIconModule,
-    MatIconModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatCardModule,
     MatToolbarModule,
-    MatCardModule,
-    MatBadgeModule,
     MatButtonModule,
-    MatInputModule,
-    MatChipsModule,
-    MatDatepickerModule,
-    MatSlideToggleModule,
-    MatNativeDateModule,
-
-
-
-
-
-
+    MatMenuModule,
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

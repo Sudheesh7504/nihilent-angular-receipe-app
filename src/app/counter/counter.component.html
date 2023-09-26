@@ -1,11 +1,15 @@
 <section class="countlikes">
   <div class="counter">
     <mat-icon matBadge="{{ like }}" matBadgeColor="warn"
-      ><button class="like-btn" (click)="increment()">👍</button></mat-icon
+      ><button class="like-btn" (click)="increment()">
+        <mat-icon>thumb_up</mat-icon>
+      </button></mat-icon
     >
 
     <mat-icon matBadge="{{ dislike }}" matBadgeColor="warn"
-      ><button class="dislike-btn" (click)="Decrement()">👎</button></mat-icon
+      ><button class="dislike-btn" (click)="Decrement()">
+        <mat-icon>thumb_down</mat-icon>
+      </button></mat-icon
     >
     <!-- <input type="range" min="0" [max]="total" [value]="like" />
   

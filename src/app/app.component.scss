@@ -1,4 +1,60 @@
-mat-toolbar.mat-primary {
-    --mat-toolbar-container-background-color: #09134b;
-    --mat-toolbar-container-text-color: white;
+// mat-toolbar.mat-primary {
+//     --mat-toolbar-container-background-color: #09134b;
+//     --mat-toolbar-container-text-color: white;
+// }
+
+// .header_title{
+//     color:#ff1414;
+// }
+
+// header{
+//     position: relative;
+// }
+
+// nav{
+//     position: sticky;
+//     top: 0;
+// }
+
+
+.lnavbar {
+    display: none;
+    background-color:  #09134b;
+    color: white;
+    // align-items: center;
+    // justify-content: space-between;
+  }
+//   .navbuttons{
+//     display: flex;
+// //    gap: 10px;
+//    align-items: center;
+  
+//   }
+
+.navbar{
+    background-color: #09134b;
+    display: block;
+    color: white;
 }
+.logo {
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: orangered !important; 
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    .lnavbar {
+      display: flex;
+      flex-direction: row;
+    //   background-color: aqua;
+      justify-content: space-between;
+      align-items: center;
+     
+    }
+    .navbar {
+      display: none;
+    }
+  }
