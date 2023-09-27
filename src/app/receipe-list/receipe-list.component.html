@@ -1,25 +1,3 @@
-<!-- <form [formGroup]="searchForm" class="example-form">
-  <mat-form-field class="example-full-width">
-    <mat-label>Search receipe</mat-label>
-    <mat-icon matPrefix>search</mat-icon>
-    <input
-      formControlName="search"
-      type="text"
-      matInput
-      placeholder="Ex. Sushi Rolls"
-    />
-  </mat-form-field>
-</form>
-<section class="receipe">
-  <app-receipe
-    *ngFor="let rc of receipes"
-    [receipe]="rc"
-    (removeReceipe)="loadReceipesData()"
-  >
-  </app-receipe>
-</section>
- -->
-
 <div class="background-container">
   <form [formGroup]="searchForm" class="example-form">
     <mat-form-field class="example-full-width">
@@ -43,12 +21,14 @@
     (loading)="onLoadingChange($event)"
     class="receipe-list-container"
   >
-    <app-receipe
-      *ngFor="let rc of receipes"
-      [receipe]="rc"
-      (removeReceipe)="loadReceipesData()"
-    >
-    </app-receipe>
+    <div class="receipe-card">
+      <app-receipe
+        *ngFor="let rc of receipes"
+        [receipe]="rc"
+        (removeReceipe)="loadReceipesData()"
+      >
+      </app-receipe>
+    </div>
     <div class="spinner-container" *ngIf="isLoading">
       <mat-spinner></mat-spinner>
     </div>

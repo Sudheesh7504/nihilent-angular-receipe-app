@@ -5,6 +5,7 @@ import { ReceipeDataService } from '../receipe-data.service';
 import { debounceTime, Subject, switchMap } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -43,7 +44,9 @@ export class ReceipeComponent {
 
 
 
-  constructor(private router: Router, private receipeDataService: ReceipeDataService, private dialog: MatDialog) {
+  constructor(private router: Router,
+    private receipeDataService: ReceipeDataService,
+    private dialog: MatDialog, private snackBar: MatSnackBar) {
     this.likeSubject.pipe(debounceTime(1000),
       switchMap((likeCount) => {
         this.receipe = { ...this.receipe, like: likeCount }
@@ -85,6 +88,12 @@ export class ReceipeComponent {
     this.receipeDataService.deleteReceipesById(this.receipe.id).subscribe(() => {
       console.log('Receipe deleted successfully');
       this.removeReceipe.emit();
+      this.snackBar.open('Recipe deleted successfully', 'Close', {
+        duration: 5000,
+        panelClass: ['snackbar-success'],
+        verticalPosition: 'top',
+        horizontalPosition: 'end',
+      });
     });
     // go refresh -> Parent
   }

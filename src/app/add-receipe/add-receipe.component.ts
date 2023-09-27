@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-receipe',
@@ -14,6 +15,7 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 export class AddReceipeComponent {
 
   separatorKeysCodes: number[] = [ENTER, COMMA];
+  progress = 0;
 
   receipeForm = this.fb.group({
     receipeName: ['', [Validators.required, Validators.minLength(5)]],
@@ -54,13 +56,28 @@ export class AddReceipeComponent {
   constructor(
     private receipeDataService: ReceipeDataService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar
   ) {
     this.receipeList = receipeDataService.getReceipes();
   }
 
   get receipeName() {
     return this.receipeForm?.get('receipeName');
+  }
+
+  ngOnInit() {
+    this.receipeForm.valueChanges.subscribe(() => {
+      this.updateProgress();
+    });
+  }
+  updateProgress() {
+    const allControls = Object.keys(this.receipeForm.controls);
+    const validControls = allControls.filter(
+      (key) => this.receipeForm.get(key)?.valid
+    );
+
+    this.progress = (validControls.length / allControls.length) * 100;
   }
 
   get cuisine() {
@@ -109,6 +126,12 @@ export class AddReceipeComponent {
       // this.movieService.setMovieList(newMovie as Movie);
       this.receipeDataService.createMovie(newReceipe as Receipe).subscribe(() => {
         this.router.navigate(['/receipes']);
+        this.snackBar.open(`${this.receipeName} added successfully!`, 'Close', {
+          duration: 5000,
+          panelClass: ['snackbar-success'],
+          verticalPosition: 'top',
+          horizontalPosition: 'end',
+        });
       });
     }
   }

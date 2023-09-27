@@ -31,6 +31,7 @@ import {
 } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
@@ -73,7 +74,8 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressBarModule
   ],
   providers: [
     // MatDialog

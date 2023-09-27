@@ -23,6 +23,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+
+
 
 
 
@@ -49,7 +52,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatMenuModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,6 +5,7 @@ import { ReceipeDataService } from '../receipe-data.service';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -54,7 +55,8 @@ export class EditReceipeComponent {
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private receipeDataService: ReceipeDataService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
     const { id } = this.route.snapshot.params;
     this.id = id;
@@ -124,6 +126,15 @@ export class EditReceipeComponent {
 
       this.receipeDataService.updateReceipe(updatedReceipe as Receipe, this.id).subscribe(() => {
         this.router.navigate(['/receipes']);
+
+
+        this.snackBar.open(`Recipe edited successfully`, 'Close', {
+          duration: 5000,
+          panelClass: ['snackbar-success'],
+          verticalPosition: 'top',
+          horizontalPosition: 'end',
+        });
+        console.log(this.receipeName);
       });
     }
   }

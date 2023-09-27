@@ -1,13 +1,18 @@
 .receipe {
-  display: flex;
+  // display: flex;
   justify-content: center;
+  flex-direction: row;
   gap: 20px;
   padding: 10px;
   flex-wrap: wrap;
   overflow: hidden;
 }
 
-
+.receipe-card{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
 .example-form {
   min-width: 150px;
@@ -30,38 +35,15 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
-  min-height: 100vh; /* Set the minimum height to cover the entire viewport */
   display: flex;
   flex-direction: column;
+  min-height: 100vh; 
+ 
+ 
   align-items: center;
 }
 
-// .receipe {
-//   display: flex;
-//   justify-content: center;
-//   gap: 20px;
-//   padding: 10px;
-//   flex-wrap: wrap;
-//   overflow: hidden;
-//   background-color: rgba(255, 255, 255, 0.5); /* Adjust the opacity (last value) as needed */
-//   border-radius: 10px; /* Add rounded corners to the cards */
-//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the cards */
-//   padding: 20px; /* Add some spacing inside the cards */
-//   max-width: 800px; /* Limit the width of the cards */
-//   margin: 20px; /* Add margin to the cards */
-// }
 
-// .example-form {
-//   min-width: 150px;
-//   max-width: 500px;
-//   width: 100%;
-//   margin: 0 auto;
-//   margin-top: 20px;
-//   background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity (last value) as needed */
-//   padding: 20px; /* Add some spacing inside the form */
-//   border-radius: 10px; /* Add rounded corners to the form */
-//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the form */
-// }
 
 
 .spinner-container {
@@ -73,8 +55,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Optional: semi-transparent background */
-  z-index: 999; /* Optional: use a high z-index to ensure it's on top of other content */
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 999; 
 }
 
 
