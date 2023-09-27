@@ -63,9 +63,6 @@ export class ReceipeComponent {
 
 
 
-  // openSnackBar(message: string, action: string) {
-  //   this.snackBar.open(message, action);
-  // }
 
   openConfirmDialog() {
     return this.dialog.open(ConfirmDialogComponent, {

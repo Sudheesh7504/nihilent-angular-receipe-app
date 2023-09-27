@@ -27,15 +27,7 @@ export class CounterComponent {
         this.dislikeCounter.emit(this.dislike);
     }
 
-    // get total() {
-    //     return this.like + this.dislike;
-    // }
 
-    // get msg() {
-    //     return this.like - this.dislike >= 10;
-
-
-    // }
 
 
 }
