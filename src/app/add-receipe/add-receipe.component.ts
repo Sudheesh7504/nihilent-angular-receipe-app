@@ -126,7 +126,7 @@ export class AddReceipeComponent {
       // this.movieService.setMovieList(newMovie as Movie);
       this.receipeDataService.createMovie(newReceipe as Receipe).subscribe(() => {
         this.router.navigate(['/receipes']);
-        this.snackBar.open(`${this.receipeName} added successfully!`, 'Close', {
+        this.snackBar.open(' New Recipe added successfully!', 'Close', {
           duration: 5000,
           panelClass: ['snackbar-success'],
           verticalPosition: 'top',

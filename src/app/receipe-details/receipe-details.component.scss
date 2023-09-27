@@ -1,25 +1,11 @@
-
-
-
-.receipe-list-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 10px;
-  flex-wrap: wrap;
-  overflow: hidden;
-}
-
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto;
-  margin-top: 20px;
-}
-
-.example-full-width {
-  width: 100%;
+/* Base styles for all screen sizes */
+.receipe-video-container {
+  background-image: url("https://i.gifer.com/B4IS.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-color: brown;
 }
 
 .receipeVlogCard {
@@ -33,12 +19,14 @@
   max-width: 930px;
   margin: 0 auto;
   box-sizing: border-box;
+  width: 80%;
 }
 
 .video-container {
   width: 100%;
   max-width: 930px;
   overflow: hidden;
+  background-position: center;
 }
 
 .receipecontent {
@@ -60,22 +48,37 @@
   font-weight: 900;
 }
 
-// .receipe-video-container {
-//   background-image: url("https://img.freepik.com/premium-photo/food-table-top-view-free-space-your-text_187166-25767.jpg");
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   background-attachment: fixed;
-//   background-position: center center;
-//   background-color: brown; 
-// }
+/* Media query for mobile screens (up to 576px width) */
+@media (max-width: 576px) {
+  .receipe-video-container {
+      background-size: cover;
+      padding: 10px;
+  }
 
-.receipe-video-container {
-  background-image: url("https://i.gifer.com/B4IS.gif");
-  // background-image: url("https://media.tenor.com/u8SyanEtCYsAAAAC/food-chinesefood.gif");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  background-color: brown; /* This sets a fallback background color in case the image is missing or fails to load */
+  .receipeVlogCard {
+      width: 100%;
+  }
+
+  .video-container iframe {
+      width: 100%;
+      height: auto;
+  }
+
+  .receipecontent {
+      padding: 8px;
+  }
 }
 
+/* Media query for tablet screens (577px to 992px width) */
+@media (min-width: 577px) and (max-width: 992px) {
+  .receipeVlogCard {
+      max-width: 80%;
+  }
+}
+
+/* Media query for laptop screens (greater than 992px width) */
+@media (min-width: 993px) {
+  .receipeVlogCard {
+      max-width: 930px;
+  }
+}

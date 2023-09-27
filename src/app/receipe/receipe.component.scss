@@ -91,3 +91,9 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  @media(max-width:576px){
+    .receipe-component{
+      justify-content: center;
+    }
+  }
