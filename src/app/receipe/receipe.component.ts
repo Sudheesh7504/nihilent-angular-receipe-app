@@ -50,13 +50,13 @@ export class ReceipeComponent {
     this.likeSubject.pipe(debounceTime(1000),
       switchMap((likeCount) => {
         this.receipe = { ...this.receipe, like: likeCount }
-        return this.receipeDataService.updateReceipe(this.receipe, this.receipe.id);
+        return this.receipeDataService.updateReceipeById(this.receipe);
       })).subscribe();
 
     this.disLikeSubject.pipe(debounceTime(1000),
       switchMap((dislikeCount) => {
         this.receipe = { ...this.receipe, dislike: dislikeCount }
-        return this.receipeDataService.updateReceipe(this.receipe, this.receipe.id);
+        return this.receipeDataService.updateReceipeById(this.receipe);
       })).subscribe();
 
   }

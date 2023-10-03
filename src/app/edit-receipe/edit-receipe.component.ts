@@ -117,14 +117,14 @@ export class EditReceipeComponent {
     this.ingredients.removeAt(index);
   }
 
-  UpdateReceipe() {
+  UpdateReceipeById() {
     console.log(this.receipeForm.status);
 
     if (this.receipeForm.valid) {
       const updatedReceipe = this.receipeForm.value;
       console.log(updatedReceipe);
 
-      this.receipeDataService.updateReceipe(updatedReceipe as Receipe, this.id).subscribe(() => {
+      this.receipeDataService.updateReceipeById(updatedReceipe as Receipe).subscribe(() => {
         this.router.navigate(['/receipes']);
 
 

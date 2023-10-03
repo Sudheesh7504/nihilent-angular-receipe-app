@@ -5,10 +5,49 @@
       <mat-icon matPrefix>search</mat-icon>
       <input
         formControlName="search"
-        type="text"
+        type="search"
         matInput
         placeholder="Ex. Sushi Rolls"
+        list="search_list"
       />
+
+      <datalist id="search_list" *ngIf="searchForm.get('search')?.value !== ''">
+        <option
+          class="options"
+          *ngFor="let rc of receipes"
+          value="{{ rc.receipeName }}"
+        >
+          {{ rc.receipeName }}
+        </option>
+      </datalist>
+      <!-- <button
+        matSuffix
+        mat-icon-button
+        *ngIf="
+          searchForm.get('search')?.value !== null &&
+          searchForm.get('search')?.value !== ''
+        "
+        (click)="clearSearch()"
+      >
+        <mat-icon>close</mat-icon>
+      </button> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Sort By</mat-label>
+      <mat-select (selectionChange)="onSortChange($event)">
+        <mat-option value="recipeName">Name</mat-option>
+        <mat-option value="rating">Rating</mat-option>
+        <mat-option value="uploadedDate">uploadedDate</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Order</mat-label>
+      <mat-select (selectionChange)="onOrderChange($event)">
+        <mat-option value="asc">Ascending</mat-option>
+        <mat-option value="desc">Descending</mat-option>
+      </mat-select>
     </mat-form-field>
   </form>
   <section

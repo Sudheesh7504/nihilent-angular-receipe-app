@@ -16,6 +16,7 @@ type Receipe = {
   uploadedDate: string;
   recommended: boolean;
   rating: number;
+  // filteredSearches: Array<string>;
 }
 
 @Component({

@@ -13,6 +13,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  
   // width:80%;
 }
 
@@ -38,8 +39,14 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-width: 100vw;
 
   align-items: center;
+}
+
+/* Remove the dropdown arrow icon from the input */
+input::-webkit-calendar-picker-indicator {
+  display: none;
 }
 
 .spinner-container {
@@ -55,15 +62,15 @@
   z-index: 999;
 }
 
-
 @media (max-width: 400px) {
   .receipe {
     flex-direction: column;
     justify-content: center;
+   max-width:80vw;
   }
 
   .receipe-card {
-    width: 100%;
+    min-width: 90%;
 
   }
 
@@ -72,3 +79,5 @@
   }
   
 }
+
+
