@@ -43,10 +43,10 @@ export class ReceipeListComponent implements OnInit {
       )
       .subscribe((mvList) => {
         this.receipes = mvList;
-        this.applySorting(); // Apply sorting when new data is received
+        this.applySorting();
       });
 
-    this.loadReceipesData();
+    // this.loadReceipesData();
   }
 
   loadReceipesData() {
@@ -102,7 +102,7 @@ export class ReceipeListComponent implements OnInit {
 
   onNewItems(newItems: Receipe[]): void {
     if (newItems.length === 0) {
-      this.receipes = [];
+      // this.receipes = [];
     } else {
       this.receipes = [...this.receipes, ...newItems];
       this.applySorting();
