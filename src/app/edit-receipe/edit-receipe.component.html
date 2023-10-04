@@ -4,11 +4,7 @@
 />
 <div class="edit-receipe-container">
   <h1>Edit Recipe Form</h1>
-  <form
-    [formGroup]="receipeForm"
-    (ngSubmit)="UpdateReceipeById()"
-    class="edit-receipe-form"
-  >
+  <form [formGroup]="receipeForm" class="edit-receipe-form">
     <mat-slide-toggle formControlName="recommended"
       >Recommended</mat-slide-toggle
     >
@@ -148,7 +144,12 @@
       </mat-error>
     </mat-form-field>
     <!-- <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating> -->
-    <button type="submit" mat-raised-button color="primary">
+    <button
+      (click)="UpdateReceipeById()"
+      type="submit"
+      mat-raised-button
+      color="primary"
+    >
       <mat-icon
         aria-hidden="false"
         aria-label="Example home icon"

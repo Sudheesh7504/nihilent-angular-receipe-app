@@ -19,6 +19,7 @@ export class EditReceipeComponent {
 
 
   receipeForm = this.fb.group({
+    id: '',
     receipeName: ['', [Validators.required, Validators.minLength(5)]],
     cuisine: ['', [Validators.required, Validators.minLength(5)]],
     recommended: [false],
@@ -118,14 +119,14 @@ export class EditReceipeComponent {
   }
 
   UpdateReceipeById() {
-    console.log(this.receipeForm.status);
+
 
     if (this.receipeForm.valid) {
       const updatedReceipe = this.receipeForm.value;
-      console.log(updatedReceipe);
+
 
       this.receipeDataService.updateReceipeById(updatedReceipe as Receipe).subscribe(() => {
-        this.router.navigate(['/receipes']);
+
 
 
         this.snackBar.open(`Recipe edited successfully`, 'Close', {
@@ -134,7 +135,7 @@ export class EditReceipeComponent {
           verticalPosition: 'top',
           horizontalPosition: 'end',
         });
-        console.log(this.receipeName);
+        this.router.navigate(['/receipes']);
       });
     }
   }

@@ -31,6 +31,7 @@ export class ReceipeDataService {
 
   updateReceipeById(updatedReceipe: Receipe) {
     const id = updatedReceipe.id;
+    console.log(id)
     return this.http.put(`${API}/${id}`, updatedReceipe);
   }
 
