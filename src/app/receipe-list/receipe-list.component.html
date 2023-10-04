@@ -20,36 +20,27 @@
           {{ rc.receipeName }}
         </option>
       </datalist>
-      <!-- <button
-        matSuffix
-        mat-icon-button
-        *ngIf="
-          searchForm.get('search')?.value !== null &&
-          searchForm.get('search')?.value !== ''
-        "
-        (click)="clearSearch()"
-      >
-        <mat-icon>close</mat-icon>
-      </button> -->
     </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Sort By</mat-label>
-      <mat-select (selectionChange)="onSortChange($event)">
-        <mat-option value="recipeName">Name</mat-option>
-        <mat-option value="rating">Rating</mat-option>
-        <mat-option value="uploadedDate">uploadedDate</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div class="sort_order">
+      <mat-form-field>
+        <mat-label>Sort By</mat-label>
+        <mat-select (selectionChange)="onSortChange($event)">
+          <mat-option value="recipeName">Name</mat-option>
+          <mat-option value="rating">Rating</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Order</mat-label>
-      <mat-select (selectionChange)="onOrderChange($event)">
-        <mat-option value="asc">Ascending</mat-option>
-        <mat-option value="desc">Descending</mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Order</mat-label>
+        <mat-select (selectionChange)="onOrderChange($event)">
+          <mat-option value="asc">Ascending</mat-option>
+          <mat-option value="desc">Descending</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </form>
+
   <section
     class="receipe"
     appInfiniteScroll
@@ -68,6 +59,7 @@
       >
       </app-receipe>
     </div>
+
     <div class="spinner-container" *ngIf="isLoading">
       <mat-spinner></mat-spinner>
     </div>

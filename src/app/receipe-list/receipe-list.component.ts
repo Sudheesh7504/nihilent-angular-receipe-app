@@ -1,15 +1,13 @@
 
+
+
 import { Component, OnInit } from '@angular/core';
 import { ReceipeDataService } from '../receipe-data.service';
 import { Receipe } from '../app.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSelectChange } from '@angular/material/select';
 
-import {
-  debounceTime,
-  distinctUntilChanged,
-  switchMap,
-} from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-receipe-list',
@@ -22,8 +20,8 @@ export class ReceipeListComponent implements OnInit {
   searchTerm!: string;
   searchForm: FormGroup;
 
-  sortType: string = 'default'; // default, title, or date
-  order: string = ''; // asc or desc
+  sortType: string = 'recipeName'; // Default sorting field
+  order: string = 'asc'; // Default sorting order
   previousSearches: string[] = [];
 
   constructor(
@@ -41,12 +39,11 @@ export class ReceipeListComponent implements OnInit {
       ?.valueChanges.pipe(
         debounceTime(1500),
         distinctUntilChanged(),
-        switchMap((name) =>
-          this.receipeDataService.searchReceipeList(name || '')
-        )
+        switchMap((name) => this.receipeDataService.searchReceipeList(name || ''))
       )
       .subscribe((mvList) => {
         this.receipes = mvList;
+        this.applySorting(); // Apply sorting when new data is received
       });
 
     this.loadReceipesData();
@@ -57,6 +54,7 @@ export class ReceipeListComponent implements OnInit {
       .getReceipeListFromMockAPI()
       .subscribe((rcList) => {
         this.receipes = rcList;
+        this.applySorting(); // Apply sorting after loading data
       });
   }
 
@@ -77,10 +75,29 @@ export class ReceipeListComponent implements OnInit {
 
   onSortChange(event: MatSelectChange): void {
     this.sortType = event.value;
+    this.applySorting();
   }
 
   onOrderChange(event: MatSelectChange): void {
     this.order = event.value;
+    this.applySorting();
+  }
+
+  applySorting() {
+    if (this.sortType && this.order) {
+
+      this.receipes.sort((a: Receipe, b: Receipe) => {
+        const sortOrder = this.order === 'asc' ? 1 : -1;
+        if (this.sortType === 'receipeName') {
+          return a.receipeName.localeCompare(b.receipeName) * sortOrder;
+        } else if (this.sortType === 'rating') {
+          return (a.rating - b.rating) * sortOrder;
+        } else if (this.sortType === 'uploadedDate') {
+
+        }
+        return 0;
+      });
+    }
   }
 
   onNewItems(newItems: Receipe[]): void {
@@ -88,21 +105,11 @@ export class ReceipeListComponent implements OnInit {
       this.receipes = [];
     } else {
       this.receipes = [...this.receipes, ...newItems];
+      this.applySorting();
     }
   }
 
   onLoadingChange(isLoading: boolean): void {
     this.isLoading = isLoading;
   }
-
-  //   clearSearch() {
-  //     const searchValue = this.searchForm.get('search')?.value;
-  //     if (searchValue) {
-  //       this.previousSearches.push(searchValue);
-  //     }
-  //     this.searchForm.get('search')?.setValue('');
-  //   }
-  // }
-
 }
-
