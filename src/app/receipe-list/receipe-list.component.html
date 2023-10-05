@@ -8,30 +8,28 @@
         type="search"
         matInput
         placeholder="Ex. Sushi Rolls"
-        list="search_list"
+        [matAutocomplete]="auto"
       />
-
-      <datalist id="search_list" *ngIf="searchForm.get('search')?.value !== ''">
-        <option
-          class="options"
-          *ngFor="let rc of receipes"
-          value="{{ rc.receipeName }}"
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let option of filteredOptions | async"
+          [value]="option"
         >
-          {{ rc.receipeName }}
-        </option>
-      </datalist>
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
     </mat-form-field>
 
     <div class="sort_order">
-      <mat-form-field>
+      <mat-form-field class="sort">
         <mat-label>Sort By</mat-label>
         <mat-select (selectionChange)="onSortChange($event)">
-          <mat-option value="recipeName">Name</mat-option>
+          <mat-option value="receipeName">Name</mat-option>
           <mat-option value="rating">Rating</mat-option>
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field class="sort">
         <mat-label>Order</mat-label>
         <mat-select (selectionChange)="onOrderChange($event)">
           <mat-option value="asc">Ascending</mat-option>

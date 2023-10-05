@@ -1,13 +1,18 @@
 
-
-
 import { Component, OnInit } from '@angular/core';
 import { ReceipeDataService } from '../receipe-data.service';
 import { Receipe } from '../app.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSelectChange } from '@angular/material/select';
-
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { Observable, of } from 'rxjs';
+import {
+  startWith,
+  map,
+  debounceTime,
+  distinctUntilChanged,
+  switchMap,
+} from 'rxjs/operators';
 
 @Component({
   selector: 'app-receipe-list',
@@ -19,10 +24,10 @@ export class ReceipeListComponent implements OnInit {
   isLoading: boolean = false;
   searchTerm!: string;
   searchForm: FormGroup;
-
-  sortType: string = 'recipeName'; // Default sorting field
-  order: string = 'asc'; // Default sorting order
+  sortType: string = 'recipeName';
+  order: string = 'asc';
   previousSearches: string[] = [];
+  filteredOptions!: Observable<string[]>;
 
   constructor(
     private receipeDataService: ReceipeDataService,
@@ -34,28 +39,26 @@ export class ReceipeListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchForm
-      .get('search')
-      ?.valueChanges.pipe(
-        debounceTime(1500),
-        distinctUntilChanged(),
-        switchMap((name) => this.receipeDataService.searchReceipeList(name || ''))
-      )
-      .subscribe((mvList) => {
-        this.receipes = mvList;
+    this.filteredOptions = this.searchForm.get('search')!.valueChanges.pipe(
+      startWith(''),
+      debounceTime(1000),
+      distinctUntilChanged(),
+      switchMap((name) => {
+        this.searchTerm = name;
         this.applySorting();
-      });
+        return this.receipeDataService.searchReceipeList(name || '')
+      }),
+      map((mvList) => mvList.map((rc) => rc.receipeName))
+    );
 
     // this.loadReceipesData();
   }
 
   loadReceipesData() {
-    this.receipeDataService
-      .getReceipeListFromMockAPI()
-      .subscribe((rcList) => {
-        this.receipes = rcList;
-        this.applySorting(); // Apply sorting after loading data
-      });
+    this.receipeDataService.getReceipeListFromMockAPI().subscribe((rcList) => {
+      this.receipes = rcList;
+      this.applySorting();
+    });
   }
 
   deleteReceipe(receipe: Receipe, idx: number) {
@@ -84,8 +87,11 @@ export class ReceipeListComponent implements OnInit {
   }
 
   applySorting() {
+    this.receipes = this.receipes.filter(recipe => {
+      const matchesSearch = !this.searchTerm || recipe.receipeName.toLowerCase().includes(this.searchTerm.toLowerCase());
+      return matchesSearch;
+    });
     if (this.sortType && this.order) {
-
       this.receipes.sort((a: Receipe, b: Receipe) => {
         const sortOrder = this.order === 'asc' ? 1 : -1;
         if (this.sortType === 'receipeName') {
@@ -93,23 +99,46 @@ export class ReceipeListComponent implements OnInit {
         } else if (this.sortType === 'rating') {
           return (a.rating - b.rating) * sortOrder;
         } else if (this.sortType === 'uploadedDate') {
-
+          // Add logic for sorting by uploadedDate if needed
         }
         return 0;
       });
     }
   }
 
+  // onNewItems(newItems: Receipe[]): void {
+  //   if (newItems.length === 0) {
+  //     // Handle empty newItems array if needed
+  //     return;
+  //   }
+
+  //   for (const newItem of newItems) {
+  //     const isDuplicate = this.receipes.some(existingItem => existingItem.id === newItem.id);
+  //     if (!isDuplicate) {
+  //       this.receipes.push(newItem);
+  //     }
+  //   }
+
+  //   this.applySorting();
+  // }
+
+
   onNewItems(newItems: Receipe[]): void {
-    if (newItems.length === 0) {
-      // this.receipes = [];
-    } else {
-      this.receipes = [...this.receipes, ...newItems];
-      this.applySorting();
-    }
+    const existingsongs = new Set(this.receipes.map((rc) => rc.id))
+    // if (newItems.length === 0) {
+    //   return;
+    // }
+    const uniqueNewItems = newItems.filter(
+      (newItem) => !existingsongs.has(newItem.id)
+    );
+    // const uniqueNewItems = newItems.filter(newItem => !this.musiclist.some(existingItem => existingItem.id === newItem.id));
+
+    this.receipes = [...this.receipes, ...uniqueNewItems];
+    this.applySorting();
   }
 
   onLoadingChange(isLoading: boolean): void {
     this.isLoading = isLoading;
   }
 }
+
