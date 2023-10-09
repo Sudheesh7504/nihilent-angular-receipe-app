@@ -140,5 +140,9 @@ export class ReceipeListComponent implements OnInit {
   onLoadingChange(isLoading: boolean): void {
     this.isLoading = isLoading;
   }
+
+  clearSearch() {
+    this.searchForm.get('search')?.setValue('');
+  }
 }
 

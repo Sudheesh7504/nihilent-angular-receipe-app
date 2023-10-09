@@ -2,10 +2,10 @@
   <form [formGroup]="searchForm" class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Search recipe</mat-label>
-      <mat-icon matPrefix>search</mat-icon>
+      <mat-icon matPrefix>lunch_dining</mat-icon>
       <input
         formControlName="search"
-        type="search"
+        type="text"
         matInput
         placeholder="Ex. Sushi Rolls"
         [matAutocomplete]="auto"
@@ -18,11 +18,23 @@
           {{ option }}
         </mat-option>
       </mat-autocomplete>
+      <button
+        matSuffix
+        mat-icon-button
+        *ngIf="
+          searchForm.get('search')?.value !== null &&
+          searchForm.get('search')?.value !== ''
+        "
+        (click)="clearSearch()"
+      >
+        <mat-icon>cancel</mat-icon>
+      </button>
     </mat-form-field>
 
     <div class="sort_order">
       <mat-form-field class="sort">
         <mat-label>Sort By</mat-label>
+        <mat-icon matPrefix>sort</mat-icon>
         <mat-select (selectionChange)="onSortChange($event)">
           <mat-option value="receipeName">Name</mat-option>
           <mat-option value="rating">Rating</mat-option>
@@ -31,6 +43,7 @@
 
       <mat-form-field class="sort">
         <mat-label>Order</mat-label>
+        <mat-icon matPrefix>grading</mat-icon>
         <mat-select (selectionChange)="onOrderChange($event)">
           <mat-option value="asc">Ascending</mat-option>
           <mat-option value="desc">Descending</mat-option>
