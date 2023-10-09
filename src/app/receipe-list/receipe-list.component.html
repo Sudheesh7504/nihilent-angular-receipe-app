@@ -1,78 +1,87 @@
 <div class="background-container">
-  <form [formGroup]="searchForm" class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>Search recipe</mat-label>
-      <mat-icon matPrefix>lunch_dining</mat-icon>
-      <input
-        formControlName="search"
-        type="text"
-        matInput
-        placeholder="Ex. Sushi Rolls"
-        [matAutocomplete]="auto"
-      />
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option
-          *ngFor="let option of filteredOptions | async"
-          [value]="option"
-        >
-          {{ option }}
-        </mat-option>
-      </mat-autocomplete>
-      <button
-        matSuffix
-        mat-icon-button
-        *ngIf="
-          searchForm.get('search')?.value !== null &&
-          searchForm.get('search')?.value !== ''
-        "
-        (click)="clearSearch()"
-      >
-        <mat-icon>cancel</mat-icon>
-      </button>
-    </mat-form-field>
-
-    <div class="sort_order">
-      <mat-form-field class="sort">
-        <mat-label>Sort By</mat-label>
-        <mat-icon matPrefix>sort</mat-icon>
-        <mat-select (selectionChange)="onSortChange($event)">
-          <mat-option value="receipeName">Name</mat-option>
-          <mat-option value="rating">Rating</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field class="sort">
-        <mat-label>Order</mat-label>
-        <mat-icon matPrefix>grading</mat-icon>
-        <mat-select (selectionChange)="onOrderChange($event)">
-          <mat-option value="asc">Ascending</mat-option>
-          <mat-option value="desc">Descending</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-  </form>
-
-  <section
-    class="receipe"
-    appInfiniteScroll
-    apiEndpoint
-    [pageSize]="4"
-    [searchTerm]="searchTerm"
-    (items)="onNewItems($event)"
-    (loading)="onLoadingChange($event)"
-    class="receipe-list-container"
+  <div
+    [ngClass]="{ 'dark-theme': themeService.isDarkTheme }"
+    class="component-container"
   >
-    <div class="receipe-card">
-      <app-receipe
-        *ngFor="let rc of receipes"
-        [receipe]="rc"
-        (removeReceipe)="loadReceipesData()"
-      >
-      </app-receipe>
-    </div>
+    <mat-slide-toggle (change)="toggleTheme()">
+      {{ themeService.isDarkTheme ? "Dark Theme" : "Light Theme" }}
+    </mat-slide-toggle>
 
-    <div class="spinner-container" *ngIf="isLoading">
-      <mat-spinner></mat-spinner>
-    </div>
-  </section>
+    <form [formGroup]="searchForm" class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Search recipe</mat-label>
+        <mat-icon matPrefix>lunch_dining</mat-icon>
+        <input
+          formControlName="search"
+          type="text"
+          matInput
+          placeholder="Ex. Sushi Rolls"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let option of filteredOptions | async"
+            [value]="option"
+          >
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+        <button
+          matSuffix
+          mat-icon-button
+          *ngIf="
+            searchForm.get('search')?.value !== null &&
+            searchForm.get('search')?.value !== ''
+          "
+          (click)="clearSearch()"
+        >
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <div class="sort_order">
+        <mat-form-field class="sort">
+          <mat-label>Sort By</mat-label>
+          <mat-icon matPrefix>sort</mat-icon>
+          <mat-select (selectionChange)="onSortChange($event)">
+            <mat-option value="receipeName">Name</mat-option>
+            <mat-option value="rating">Rating</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="sort">
+          <mat-label>Order</mat-label>
+          <mat-icon matPrefix>grading</mat-icon>
+          <mat-select (selectionChange)="onOrderChange($event)">
+            <mat-option value="asc">Ascending</mat-option>
+            <mat-option value="desc">Descending</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+
+    <section
+      class="receipe"
+      appInfiniteScroll
+      apiEndpoint
+      [pageSize]="4"
+      [searchTerm]="searchTerm"
+      (items)="onNewItems($event)"
+      (loading)="onLoadingChange($event)"
+      class="receipe-list-container"
+    >
+      <div class="receipe-card">
+        <app-receipe
+          *ngFor="let rc of receipes"
+          [receipe]="rc"
+          (removeReceipe)="loadReceipesData()"
+        >
+        </app-receipe>
+      </div>
+
+      <div class="spinner-container" *ngIf="isLoading">
+        <mat-spinner></mat-spinner>
+      </div>
+    </section>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { ThemeService } from './theme.service';
 
 
 type Receipe = {
@@ -27,6 +27,11 @@ type Receipe = {
 })
 class AppComponent {
   title = 'nihilent-angular-receipe-app';
+  // constructor(public themeService: ThemeService) { }
+
+  // toggleTheme() {
+  //   this.themeService.toggleTheme();
+  // }
 }
 
 

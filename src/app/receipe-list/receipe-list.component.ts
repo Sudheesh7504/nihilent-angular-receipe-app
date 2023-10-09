@@ -1,4 +1,4 @@
-
+import { ThemeService } from '../theme.service';
 import { Component, OnInit } from '@angular/core';
 import { ReceipeDataService } from '../receipe-data.service';
 import { Receipe } from '../app.component';
@@ -30,12 +30,16 @@ export class ReceipeListComponent implements OnInit {
   filteredOptions!: Observable<string[]>;
 
   constructor(
-    private receipeDataService: ReceipeDataService,
+    private receipeDataService: ReceipeDataService, public themeService: ThemeService,
     private fb: FormBuilder
   ) {
     this.searchForm = this.fb.group({
       search: '',
     });
+  }
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
   }
 
   ngOnInit() {

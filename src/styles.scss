@@ -1,5 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+ html, body { height: 100%; }
+ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+// styles.scss
+:root {
+    --background-color: #fff;
+    --text-color: #333;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    // color: var(--text-color);
+  }
+  

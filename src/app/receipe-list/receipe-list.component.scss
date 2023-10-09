@@ -43,19 +43,19 @@ width: 100%;
 .sort{
   width: 100%;
 }
-.background-container {
-  background-image: url("https://media.istockphoto.com/id/1428737062/photo/empty-wooden-table-top-with-lights-bokeh-on-blur-restaurant-background.webp?b=1&s=170667a&w=0&k=20&c=bmQyPVwhLAB_FN9glJrREyPxzmIQPv5TOFcqcXHy2pw= "); /* Replace with your background image URL */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  min-width: 100vw;
+// .background-container {
+//   background-image: url("https://media.istockphoto.com/id/1428737062/photo/empty-wooden-table-top-with-lights-bokeh-on-blur-restaurant-background.webp?b=1&s=170667a&w=0&k=20&c=bmQyPVwhLAB_FN9glJrREyPxzmIQPv5TOFcqcXHy2pw= "); /* Replace with your background image URL */
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-attachment: fixed;
+//   background-position: center center;
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100vh;
+//   min-width: 100vw;
 
-  align-items: center;
-}
+//   align-items: center;
+// }
 
 /* Remove the dropdown arrow icon from the input */
 input::-webkit-calendar-picker-indicator {
